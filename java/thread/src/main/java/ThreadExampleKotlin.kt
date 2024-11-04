@@ -1,18 +1,15 @@
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
-fun main() {
-    val t = Thread({
-        println("Thread Work")
-    }, "이름")
-    t.join()
-    t.start()
-
-    t.start()
-
+val executor: Executor by lazy {
     Executors.newSingleThreadExecutor()
 }
 
-class ThreadExampleKotlin {
-
+fun main() {
+    val task = Runnable {
+        println("Thread Work")
+    }
+    executor.execute(task)
+    executor.execute(task)
+    executor.execute(task)
 }
