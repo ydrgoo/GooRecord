@@ -1,3 +1,5 @@
+package purejava;
+
 import java.util.concurrent.*;
 
 public class DebounceExecutor implements Executor {
